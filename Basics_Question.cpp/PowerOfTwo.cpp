@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
@@ -7,3 +10,11 @@ public:
         return isPowerOfTwo(n/2);
     }
 };
+
+int main(){
+    int n;
+    cin>>n;
+    Solution obj;
+    cout<<obj.isPowerOfTwo(n);
+    return 0;
+}
