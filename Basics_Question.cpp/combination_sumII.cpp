@@ -3,20 +3,22 @@ using namespace std;
 
 class Solution{
     public:
-    void combination(vector<int>& candidate,int index,int n,vector<vector<int>>& ans,vector<int>& temp,int target){
-        
+    void combinationsum(vector<int>& candidate,int index,int n,vector<vector<int>>& ans,vector<int>& temp,int target){
+
         if(target == 0){
             ans.push_back(temp);
             return;
         }
-        if(index == n || target <0) return;
+        if(target < 0 || index >= n) return;
 
         temp.push_back(candidate[index]);
-        //inclusion
-        combination(candidate,index,n,ans,temp,target-candidate[index]);
+        combinationsum(candidate,index+1,n,ans,temp,target-candidate[index]);
         temp.pop_back();
+
+        while(index+1 <= n || candidate[index] == candidate[index+1]) index++;
+
         //exclusion
-        combination(candidate,index+1,n,ans,temp,target);
+        combinationsum(candidate,index+1,n,ans,temp,target);
     }
 };
 
@@ -31,10 +33,8 @@ int main(){
     cin>>target;
     vector<vector<int>>ans;
     vector<int>temp;
-    int n=candidate.size();
-    
     Solution obj;
-    obj.combination(candidate,0,n,ans,temp,target);
+    obj.combinationsum(candidate,0,candidate.size(),ans,temp,target);
     
     for(int i=0;i<ans.size();i++){
         for(int j=0;j<ans[i].size();j++){
