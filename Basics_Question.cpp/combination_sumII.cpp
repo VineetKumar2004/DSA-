@@ -15,7 +15,7 @@ class Solution{
         combinationsum(candidate,index+1,n,ans,temp,target-candidate[index]);
         temp.pop_back();
 
-        while(index+1 <= n || candidate[index] == candidate[index+1]) index++;
+        while(index+1 <= n && candidate[index] == candidate[index+1]) index++;
 
         //exclusion
         combinationsum(candidate,index+1,n,ans,temp,target);
