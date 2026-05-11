@@ -15,7 +15,7 @@ class Solution{
         combinationsum(candidate,index+1,n,ans,temp,target-candidate[index]);
         temp.pop_back();
 
-        while(index+1 <= n && candidate[index] == candidate[index+1]) index++;
+        while(index+1 < n && candidate[index] == candidate[index+1]) index++;
 
         //exclusion
         combinationsum(candidate,index+1,n,ans,temp,target);
@@ -29,6 +29,8 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>candidate[i];
     }
+    sort(candidate.begin(), candidate.end());
+    
     int target;
     cin>>target;
     vector<vector<int>>ans;
@@ -37,9 +39,11 @@ int main(){
     obj.combinationsum(candidate,0,candidate.size(),ans,temp,target);
     
     for(int i=0;i<ans.size();i++){
+        cout<<"[";
         for(int j=0;j<ans[i].size();j++){
             cout<<ans[i][j]<<" ";
+
         }
-        cout<<endl;
+        cout<<"]";
     }
 }
