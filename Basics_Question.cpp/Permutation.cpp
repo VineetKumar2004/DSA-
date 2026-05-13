@@ -42,5 +42,7 @@ int main(){
             cout<<ans[i][j];
         }
         cout<<"]";
+
     }
+    return 0;
 }
