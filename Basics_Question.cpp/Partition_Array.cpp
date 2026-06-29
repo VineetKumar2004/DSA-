@@ -29,4 +29,9 @@ int main(){
     int pivot;
     cin>>pivot;
     Solution obj;
+    vector<int> ans = obj.pivotreturnn(nums, pivot);
+    for(int i=0;i<ans.size();i++){
+        cout<<x;
+    }
+}    
     
